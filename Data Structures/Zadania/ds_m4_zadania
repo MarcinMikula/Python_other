@@ -1,0 +1,7 @@
+Zadania do Modułu 4: Tablice haszujące
+
+1. Zaimplementuj tablicę haszującą z rozwiązywaniem kolizji przez sondowanie liniowe (linear probing). Dodaj metody `insert(key, value)` i `get(key)`. Przetestuj na zestawie danych z kolizjami.
+
+2. Napisz funkcję, która używa tablicy haszującej do znalezienia pierwszej powtarzającej się litery w ciągu znaków. Przetestuj na różnych ciągach.
+
+3. Zaimplementuj metodę `resize()` w klasie `HashTable`, która podwaja rozmiar tablicy, gdy współczynnik obciążenia przekroczy 0.7. Przetestuj na zestawie danych.

@@ -1,0 +1,7 @@
+Zadania do Modułu 5: Grafy i podstawowe algorytmy na grafach
+
+1. Zaimplementuj metodę `dfs()` w klasie `Graph`, która wykonuje przeszukiwanie w głąb i zwraca listę wierzchołków w kolejności odwiedzin. Przetestuj na grafie z co najmniej 5 wierzchołkami.
+
+2. Napisz funkcję, która używa DFS do wykrywania cykli w grafie nieskierowanym. Przetestuj na grafie z cyklem i bez cyklu.
+
+3. Zaimplementuj metodę `is_bipartite()` w klasie `Graph`, która sprawdza, czy graf jest dwudzielny (można podzielić wierzchołki na dwa zbiory, tak że krawędzie łączą tylko wierzchołki z różnych zbiorów). Użyj BFS. Przetestuj na różnych grafach.

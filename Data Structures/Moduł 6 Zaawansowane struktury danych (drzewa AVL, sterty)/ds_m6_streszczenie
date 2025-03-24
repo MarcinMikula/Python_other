@@ -1,0 +1,28 @@
+Moduł 6: Zaawansowane struktury danych (drzewa AVL, sterty)
+
+Moduł 6 kursu "Data Structures" (UCSD) wprowadza zaawansowane struktury danych, takie jak drzewa AVL (samobalansujące drzewa BST) i sterty (heaps), które są używane do efektywnego zarządzania danymi. Kluczowe tematy:
+
+1. Drzewa AVL:
+   - Drzewo AVL to samobalansujące drzewo BST, w którym różnica wysokości lewego i prawego poddrzewa (czynnik równowagi) nie przekracza 1.
+   - Operacje: Wstawianie, usuwanie, wyszukiwanie – wszystkie z balansowaniem.
+   - Złożoność: O(log n) dla operacji dzięki balansowaniu.
+
+2. Sterty (Heaps):
+   - Sterta to drzewo binarne spełniające własność sterty: w stercie maksymalnej wartość rodzica jest większa lub równa wartości dzieci, w stercie minimalnej – mniejsza lub równa.
+   - Operacje: Wstawianie, usuwanie maksimum/minimum, budowanie sterty.
+   - Złożoność: O(log n) dla wstawiania i usuwania, O(n) dla budowania sterty.
+
+3. Matematyczne aspekty:
+   - Czynnik równowagi w drzewie AVL: balance_factor = height(left) - height(right).
+   - Rotacje w drzewie AVL: Lewa, prawa, lewo-prawa, prawo-lewa – używane do przywracania równowagi.
+   - Sterta: Liczba węzłów na poziomie k to 2^k, wysokość sterty to log n.
+
+4. Przykłady praktyczne:
+   - Implementacja sterty minimalnej w Pythonie.
+   - Operacje na stercie: wstawianie, usuwanie minimum.
+   - Testowanie sterty na zestawie danych.
+
+5. Kluczowe wnioski:
+   - Drzewa AVL zapewniają efektywność operacji (O(log n)) dzięki samobalansowaniu, co czyni je idealnymi do dynamicznych zbiorów danych.
+   - Sterty są kluczowe w algorytmach takich jak sortowanie przez kopcowanie (heapsort) czy kolejki priorytetowe.
+   - Zaawansowane struktury danych rozwiązują problemy związane z wydajnością w specyficznych zastosowaniach.

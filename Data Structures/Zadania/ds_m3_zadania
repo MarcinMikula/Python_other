@@ -1,0 +1,9 @@
+Zadania do Modułu 3: Drzewa binarne i drzewa wyszukiwania binarnego (BST)
+
+1. Zaimplementuj metodę `delete(value)` w klasie `BST`, która usuwa węzeł o podanej wartości, zachowując właściwości BST. Przetestuj na drzewie z co najmniej 7 węzłami.
+
+2. Napisz funkcję, która oblicza wysokość drzewa BST i sprawdza, czy drzewo jest zrównoważone (różnica wysokości lewego i prawego poddrzewa nie przekracza 1). Przetestuj na różnych drzewach.
+
+3. Zaimplementuj metodę `find_min()` i `find_max()` w klasie `BST`, które znajdują najmniejszą i największą wartość w drzewie. Przetestuj na drzewie z co najmniej 5 węzłami.
+
+4. Napisz funkcję, która konwertuje posortowaną listę na zrównoważone drzewo BST. Przetestuj na liście z co najmniej 10 elementami.

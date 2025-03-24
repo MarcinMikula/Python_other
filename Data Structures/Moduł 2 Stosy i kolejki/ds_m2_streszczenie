@@ -1,0 +1,30 @@
+Moduł 2: Stosy i kolejki
+
+Moduł 2 kursu "Data Structures" (UCSD) omawia stosy i kolejki jako podstawowe struktury danych oparte na zasadzie LIFO (Last In, First Out) i FIFO (First In, First Out). Kluczowe tematy:
+
+1. Stosy (Stacks):
+   - Stos to struktura danych, w której elementy są dodawane i usuwane z jednego końca (szczytu stosu).
+   - Operacje: push (dodanie), pop (usunięcie), peek (podgląd szczytu), is_empty.
+   - Złożoność: O(1) dla wszystkich operacji.
+   - Zastosowania: Cofanie operacji, parsowanie wyrażeń, rekurencja.
+
+2. Kolejki (Queues):
+   - Kolejka to struktura danych, w której elementy są dodawane na końcu (rear) i usuwane z początku (front).
+   - Operacje: enqueue (dodanie), dequeue (usunięcie), front (podgląd początku), is_empty.
+   - Złożoność: O(1) dla wszystkich operacji (przy implementacji za pomocą listy dwukierunkowej).
+   - Zastosowania: Symulacje, planowanie zadań, kolejkowanie procesów.
+
+3. Matematyczne aspekty:
+   - Stos: Model LIFO – ostatni element dodany jest pierwszy do usunięcia.
+   - Kolejka: Model FIFO – pierwszy element dodany jest pierwszy do usunięcia.
+   - Złożoność czasowa i pamięciowa operacji.
+
+4. Przykłady praktyczne:
+   - Implementacja stosu i kolejki w Pythonie za pomocą listy jednokierunkowej.
+   - Użycie stosu do odwracania ciągu znaków.
+   - Użycie kolejki do symulacji kolejki klientów.
+
+5. Kluczowe wnioski:
+   - Stosy i kolejki to proste, ale potężne struktury danych do zarządzania sekwencjami elementów.
+   - Wybór między stosem a kolejką zależy od porządku, w jakim potrzebujemy przetwarzać elementy.
+   - Implementacja za pomocą listy jednokierunkowej jest efektywna i elastyczna.

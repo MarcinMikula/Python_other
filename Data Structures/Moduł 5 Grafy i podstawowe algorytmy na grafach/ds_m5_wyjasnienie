@@ -1,0 +1,44 @@
+Wyjaśnienie kodu z Modułu 5: Grafy i podstawowe algorytmy na grafach
+
+1. class Graph: Definiujemy klasę Graph do reprezentacji grafu.
+2. def __init__(self): Konstruktor grafu.
+3. self.graph = {}: Inicjalizujemy listę sąsiedztwa jako słownik.
+4. def add_edge(self, u, v): Definiujemy metodę do dodawania krawędzi.
+5. if u not in self.graph: Jeśli wierzchołek u nie istnieje:
+6. self.graph[u] = []: Tworzymy dla niego pustą listę.
+7. if v not in self.graph: Jeśli wierzchołek v nie istnieje:
+8. self.graph[v] = []: Tworzymy dla niego pustą listę.
+9. self.graph[u].append(v): Dodajemy v do listy sąsiadów u.
+10. self.graph[v].append(u): Dodajemy u do listy sąsiadów v (graf nieskierowany).
+11. def bfs_shortest_path(self, start, end): Definiujemy metodę do znajdowania najkrótszej ścieżki za pomocą BFS.
+12. if start not in self.graph or end not in self.graph: Jeśli wierzchołki nie istnieją:
+13. return None: Zwracamy None.
+14. visited = set(): Tworzymy zbiór odwiedzonych wierzchołków.
+15. queue = [(start, [start])]: Inicjalizujemy kolejkę z krotką (wierzchołek, ścieżka).
+16. visited.add(start): Oznaczamy start jako odwiedzony.
+17. while queue: Dopóki kolejka nie jest pusta:
+18. vertex, path = queue.pop(0): Pobieramy wierzchołek i jego ścieżkę.
+19. if vertex == end: Jeśli dotarliśmy do celu:
+20. return path: Zwracamy ścieżkę.
+21. for neighbor in self.graph[vertex]: Iterujemy po sąsiadach.
+22. if neighbor not in visited: Jeśli sąsiad nie był odwiedzony:
+23. visited.add(neighbor): Oznaczamy go jako odwiedzony.
+24. queue.append((neighbor, path + [neighbor])): Dodajemy sąsiada i nową ścieżkę do kolejki.
+25. return None: Jeśli nie ma ścieżki, zwracamy None.
+26. g = Graph(): Tworzymy obiekt grafu.
+27. g.add_edge(0, 1): Dodajemy krawędź 0-1.
+28. g.add_edge(0, 2): Dodajemy krawędź 0-2.
+29. g.add_edge(1, 2): Dodajemy krawędź 1-2.
+30. g.add_edge(1, 3): Dodajemy krawędź 1-3.
+31. g.add_edge(2, 3): Dodajemy krawędź 2-3.
+32. g.add_edge(2, 4): Dodajemy krawędź 2-4.
+33. path = g.bfs_shortest_path(0, 4): Szukamy najkrótszej ścieżki z 0 do 4:
+    - Poziom 0: (0, [0])
+    - Poziom 1: (1, [0, 1]), (2, [0, 2])
+    - Poziom 2: (2, [0, 1, 2], pomijamy), (3, [0, 1, 3]), (3, [0, 2, 3], pomijamy), (4, [0, 2, 4])
+    - Znaleziono 4, ścieżka: [0, 2, 4].
+34. print("Najkrótsza ścieżka z 0 do 4:", path): Wyświetlamy: [0, 2, 4].
+
+Złożoność:
+- BFS: O(V + E), gdzie V to liczba wierzchołków, E to liczba krawędzi.
+- Tutaj: V = 5, E = 6, więc O(11) operacji.

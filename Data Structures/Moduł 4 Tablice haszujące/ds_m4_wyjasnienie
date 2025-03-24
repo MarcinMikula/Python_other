@@ -1,0 +1,58 @@
+Wyjaśnienie kodu z Modułu 4: Tablice haszujące
+
+1. class Node: Definiujemy klasę Node do przechowywania par klucz-wartość w łańcuchu.
+2. def __init__(self, key, value): Konstruktor węzła.
+3. self.key = key: Przechowujemy klucz.
+4. self.value = value: Przechowujemy wartość.
+5. self.next = None: Ustawiamy referencję do następnego węzła na None.
+6. class HashTable: Definiujemy klasę HashTable do zarządzania tablicą haszującą.
+7. def __init__(self, size=10): Konstruktor tablicy.
+8. self.size = size: Ustawiamy rozmiar tablicy.
+9. self.table = [None] * size: Inicjalizujemy tablicę z None.
+10. def _hash(self, key): Definiujemy funkcję haszującą.
+11. return hash(key) % self.size: Obliczamy indeks jako hash(key) modulo rozmiar tablicy.
+12. def insert(self, key, value): Definiujemy metodę do wstawiania pary klucz-wartość.
+13. index = self._hash(key): Obliczamy indeks dla klucza.
+14. if not self.table[index]: Jeśli kubełek jest pusty:
+15. self.table[index] = Node(key, value): Tworzymy nowy węzeł.
+16. else: Jeśli kubełek nie jest pusty (kolizja):
+17. current = self.table[index]: Zaczynamy od pierwszego węzła w łańcuchu.
+18. while current.next and current.key != key: Szukamy węzła z kluczem lub końca łańcucha.
+19. current = current.next: Przesuwamy się do następnego węzła.
+20. if current.key == key: Jeśli klucz już istnieje:
+21. current.value = value: Aktualizujemy wartość.
+22. else: Jeśli klucza nie ma:
+23. current.next = Node(key, value): Dodajemy nowy węzeł na końcu łańcucha.
+24. def get(self, key): Definiujemy metodę do wyszukiwania wartości dla klucza.
+25. index = self._hash(key): Obliczamy indeks.
+26. current = self.table[index]: Zaczynamy od pierwszego węzła w łańcuchu.
+27. while current: Dopóki są węzły:
+28. if current.key == key: Jeśli znaleźliśmy klucz:
+29. return current.value: Zwracamy wartość.
+30. current = current.next: Przechodzimy do następnego węzła.
+31. return None: Jeśli klucza nie znaleziono, zwracamy None.
+32. def remove(self, key): Definiujemy metodę do usuwania pary klucz-wartość.
+33. index = self._hash(key): Obliczamy indeks.
+34. current = self.table[index]: Zaczynamy od pierwszego węzła.
+35. if not current: Jeśli kubełek jest pusty, kończymy.
+36. return: Kończymy.
+37. if current.key == key: Jeśli klucz jest w pierwszym węźle:
+38. self.table[index] = current.next: Usuwamy pierwszy węzeł.
+39. return: Kończymy.
+40. while current.next and current.next.key != key: Szukamy węzła przed tym, który usuwamy.
+41. current = current.next: Przesuwamy się do następnego węzła.
+42. if current.next: Jeśli znaleźliśmy węzeł do usunięcia:
+43. current.next = current.next.next: Usuwamy węzeł, łącząc poprzedni z następnym.
+44. ht = HashTable(): Tworzymy obiekt tablicy haszującej.
+45. ht.insert("apple", 5): Wstawiamy parę "apple": 5.
+46. ht.insert("banana", 8): Wstawiamy parę "banana": 8.
+47. ht.insert("orange", 3): Wstawiamy parę "orange": 3.
+48. print("Wartość dla 'apple':", ht.get("apple")): Wyświetlamy: 5.
+49. print("Wartość dla 'banana':", ht.get("banana")): Wyświetlamy: 8.
+50. ht.remove("banana"): Usuwamy "banana".
+51. print("Wartość dla 'banana' po usunięciu:", ht.get("banana")): Wyświetlamy: None.
+
+Złożoność:
+- Wstawianie: Średnio O(1), najgorszy przypadek O(n) przy wielu kolizjach.
+- Wyszukiwanie: Średnio O(1), najgorszy przypadek O(n).
+- Usuwanie: Średnio O(1), najgorszy przypadek O(n).

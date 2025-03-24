@@ -1,0 +1,28 @@
+Moduł 5: Grafy i podstawowe algorytmy na grafach
+
+Moduł 5 kursu "Data Structures" (UCSD) omawia grafy jako strukturę danych do modelowania relacji między obiektami oraz podstawowe algorytmy na grafach, takie jak DFS i BFS. Kluczowe tematy:
+
+1. Grafy:
+   - Graf to zbiór wierzchołków (vertices) i krawędzi (edges) między nimi.
+   - Rodzaje grafów: Skierowane (directed) i nieskierowane (undirected), ważone (weighted) i nieważone (unweighted).
+   - Reprezentacja: Lista sąsiedztwa (adjacency list) lub macierz sąsiedztwa (adjacency matrix).
+
+2. Algorytmy na grafach:
+   - Przeszukiwanie w głąb (DFS): Eksploruje graf, idąc jak najgłębiej wzdłuż jednej ścieżki.
+   - Przeszukiwanie wszerz (BFS): Eksploruje graf poziomami, znajdując najkrótsze ścieżki w grafie nieważonym.
+   - Złożoność: O(V + E) dla DFS i BFS, gdzie V to liczba wierzchołków, E to liczba krawędzi.
+
+3. Matematyczne aspekty:
+   - Graf: G = (V, E), gdzie V to zbiór wierzchołków, E to zbiór krawędzi.
+   - Stopień wierzchołka: Liczba krawędzi wychodzących z wierzchołka.
+   - Ścieżka: Sekwencja wierzchołków połączonych krawędziami.
+
+4. Przykłady praktyczne:
+   - Implementacja grafu za pomocą listy sąsiedztwa.
+   - Implementacja BFS do znajdowania najkrótszej ścieżki.
+   - Testowanie algorytmów na prostym grafie.
+
+5. Kluczowe wnioski:
+   - Grafy to wszechstronna struktura danych do modelowania relacji, np. w sieciach społecznościowych, mapach, planowaniu tras.
+   - DFS i BFS to podstawowe algorytmy do eksploracji grafów, z różnymi zastosowaniami (DFS do cykli, BFS do najkrótszych ścieżek).
+   - Wybór reprezentacji grafu (lista/macierz) zależy od gęstości grafu i potrzebnych operacji.

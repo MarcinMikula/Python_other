@@ -1,0 +1,9 @@
+Zadania do Modułu 2: Stosy i kolejki
+
+1. Użyj stosu do sprawdzenia, czy podany ciąg znaków (np. "{[()]}") jest poprawnie sparowanym ciągiem nawiasów. Zwróć True, jeśli nawiasy są poprawnie sparowane, i False w przeciwnym razie.
+
+2. Zaimplementuj kolejkę priorytetową (priority queue) za pomocą listy jednokierunkowej, gdzie elementy są uporządkowane według priorytetu (mniejszy priorytet = wcześniejsze wyjście). Dodaj metody `enqueue(data, priority)` i `dequeue()`. Przetestuj na małym zestawie danych.
+
+3. Napisz funkcję, która używa dwóch stosów do symulacji kolejki (tzn. implementuje operacje `enqueue` i `dequeue` za pomocą stosów). Przetestuj na sekwencji operacji.
+
+4. Użyj kolejki do symulacji drukarki, gdzie zadania drukowania mają czas wykonania (w sekundach). Oblicz całkowity czas potrzebny na wykonanie wszystkich zadań.

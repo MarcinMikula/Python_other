@@ -1,0 +1,55 @@
+Wyjaśnienie kodu z Modułu 3: Drzewa binarne i drzewa wyszukiwania binarnego (BST)
+
+1. class Node: Definiujemy klasę Node, która reprezentuje węzeł drzewa.
+2. def __init__(self, value): Konstruktor węzła.
+3. self.value = value: Przechowujemy wartość węzła.
+4. self.left = None: Ustawiamy lewe dziecko na None.
+5. self.right = None: Ustawiamy prawe dziecko na None.
+6. class BST: Definiujemy klasę BST do zarządzania drzewem wyszukiwania binarnego.
+7. def __init__(self): Konstruktor drzewa.
+8. self.root = None: Inicjalizujemy korzeń jako None.
+9. def insert(self, value): Definiujemy metodę do wstawiania wartości.
+10. if not self.root: Jeśli drzewo jest puste:
+11. self.root = Node(value): Ustawiamy nowy węzeł jako korzeń.
+12. else: Jeśli drzewo nie jest puste:
+13. self._insert_recursive(self.root, value): Wywołujemy metodę rekurencyjną.
+14. def _insert_recursive(self, node, value): Definiujemy metodę rekurencyjną do wstawiania.
+15. if value < node.value: Jeśli wartość jest mniejsza od wartości węzła:
+16. if node.left is None: Jeśli nie ma lewego dziecka:
+17. node.left = Node(value): Tworzymy nowe lewe dziecko.
+18. else: Jeśli lewe dziecko istnieje:
+19. self._insert_recursive(node.left, value): Rekurencyjnie wstawiamy w lewe poddrzewo.
+20. else: Jeśli wartość jest większa lub równa:
+21. if node.right is None: Jeśli nie ma prawego dziecka:
+22. node.right = Node(value): Tworzymy nowe prawe dziecko.
+23. else: Jeśli prawe dziecko istnieje:
+24. self._insert_recursive(node.right, value): Rekurencyjnie wstawiamy w prawe poddrzewo.
+25. def search(self, value): Definiujemy metodę do wyszukiwania wartości.
+26. return self._search_recursive(self.root, value): Wywołujemy metodę rekurencyjną.
+27. def _search_recursive(self, node, value): Definiujemy metodę rekurencyjną do wyszukiwania.
+28. if node is None or node.value == value: Jeśli węzeł jest None lub znaleźliśmy wartość:
+29. return node: Zwracamy węzeł (lub None, jeśli nie znaleziono).
+30. if value < node.value: Jeśli wartość jest mniejsza:
+31. return self._search_recursive(node.left, value): Szukamy w lewym poddrzewie.
+32. return self._search_recursive(node.right, value): Szukamy w prawym poddrzewie.
+33. def inorder(self): Definiujemy metodę do przechodzenia inorder.
+34. result = []: Inicjalizujemy listę na wyniki.
+35. self._inorder_recursive(self.root, result): Wywołujemy metodę rekurencyjną.
+36. return result: Zwracamy listę wartości.
+37. def _inorder_recursive(self, node, result): Definiujemy metodę rekurencyjną do przechodzenia inorder.
+38. if node: Jeśli węzeł istnieje:
+39. self._inorder_recursive(node.left, result): Przechodzimy lewe poddrzewo.
+40. result.append(node.value): Dodajemy wartość węzła.
+41. self._inorder_recursive(node.right, result): Przechodzimy prawe poddrzewo.
+42. bst = BST(): Tworzymy obiekt drzewa BST.
+43. values = [50, 30, 70, 20, 40, 60, 80]: Lista wartości do wstawienia.
+44. for value in values: Iterujemy po wartościach.
+45. bst.insert(value): Wstawiamy każdą wartość.
+46. print("Przechodzenie inorder:", bst.inorder()): Wyświetlamy: [20, 30, 40, 50, 60, 70, 80].
+47. print("Wyszukiwanie 40:", "Znaleziono" if bst.search(40) else "Nie znaleziono"): Wyświetlamy: Znaleziono.
+48. print("Wyszukiwanie 90:", "Znaleziono" if bst.search(90) else "Nie znaleziono"): Wyświetlamy: Nie znaleziono.
+
+Złożoność:
+- Wstawianie: O(h), gdzie h to wysokość drzewa (h = log n dla zrównoważonego, h = n dla niezrównoważonego).
+- Wyszukiwanie: O(h).
+- Przechodzenie inorder: O(n), gdzie n to liczba węzłów.

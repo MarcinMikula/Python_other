@@ -1,0 +1,11 @@
+Zadania do Modułu 1: Tablice i listy (na bazie dokumentacji Pythona)
+
+1. Napisz funkcję, która przyjmuje listę liczb i zwraca nową listę zawierającą tylko liczby dodatnie, używając list comprehension. Przetestuj na liście z co najmniej 10 elementami.
+
+2. Zaimplementuj funkcję, która odwraca listę bez użycia wbudowanej metody `reverse()` ani `reversed()`. Użyj podejścia proceduralnego. Przetestuj na liście z co najmniej 5 elementami.
+
+3. Napisz funkcję, która usuwa wszystkie duplikaty z listy, zachowując kolejność elementów (użyj zbioru, ale zwróć listę w oryginalnej kolejności). Przetestuj na liście z duplikatami.
+
+4. Zaimplementuj funkcję, która symuluje kolejkę priorytetową za pomocą listy, gdzie elementy są krotkami (wartość, priorytet). Funkcja powinna zwracać element o najwyższym priorytecie (najmniejsza liczba). Przetestuj na zestawie danych.
+
+5. Napisz funkcję, która porównuje czas wykonania operacji `pop(0)` (dequeue) i `pop()` (stack) na liście dla różnych rozmiarów danych (np. 1000, 10000 elementów). Użyj modułu `time` do pomiaru czasu.

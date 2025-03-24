@@ -1,0 +1,7 @@
+Zadania do Modułu 6: Zaawansowane struktury danych (drzewa AVL, sterty)
+
+1. Zaimplementuj stertę maksymalną (Max Heap) i dodaj metodę `extract_max()`. Przetestuj na zestawie danych z co najmniej 6 elementami.
+
+2. Napisz funkcję, która używa sterty minimalnej do sortowania listy liczb (heapsort). Przetestuj na liście z co najmniej 10 elementami.
+
+3. Zaimplementuj prostą wersję drzewa AVL z metodami `insert(value)` i rotacjami (lewa, prawa). Przetestuj na zestawie danych i sprawdź, czy drzewo pozostaje zrównoważone.

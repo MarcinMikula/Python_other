@@ -1,0 +1,58 @@
+Wyjaśnienie kodu z Modułu 1: Tablice i listy (na bazie dokumentacji Pythona)
+
+1. from array import array: Importujemy moduł array do pracy z tablicami.
+2. def add_elements(lst, elements): Definiujemy funkcję do dodawania elementów do listy.
+3. lst.extend(elements): Rozszerzamy listę o nowe elementy.
+4. return lst: Zwracamy zmodyfikowaną listę.
+5. def remove_element(lst, element): Definiujemy funkcję do usuwania elementu.
+6. if element in lst: Sprawdzamy, czy element jest w liście.
+7. lst.remove(element): Usuwamy pierwsze wystąpienie elementu.
+8. return lst: Zwracamy zmodyfikowaną listę.
+9. def insert_at_index(lst, index, element): Definiujemy funkcję do wstawiania elementu na indeks.
+10. lst.insert(index, element): Wstawiamy element na podany indeks.
+11. return lst: Zwracamy zmodyfikowaną listę.
+12. def sort_list(lst): Definiujemy funkcję do sortowania listy.
+13. return sorted(lst): Zwracamy nową, posortowaną listę (styl funkcyjny).
+14. def reverse_list(lst): Definiujemy funkcję do odwracania listy.
+15. return list(reversed(lst)): Zwracamy nową, odwróconą listę (styl funkcyjny).
+16. def stack_operations(): Definiujemy funkcję do symulacji stosu.
+17. stack = []: Inicjalizujemy pustą listę jako stos.
+18. stack.append(1): Dodajemy 1 na stos.
+19. stack.append(2): Dodajemy 2 na stos.
+20. stack.append(3): Dodajemy 3 na stos.
+21. popped = stack.pop(): Usuwamy i zapisujemy ostatni element (3).
+22. return stack, popped: Zwracamy stos i usunięty element.
+23. def queue_operations(): Definiujemy funkcję do symulacji kolejki.
+24. queue = []: Inicjalizujemy pustą listę jako kolejkę.
+25. queue.append("A"): Dodajemy "A" do kolejki.
+26. queue.append("B"): Dodajemy "B" do kolejki.
+27. queue.append("C"): Dodajemy "C" do kolejki.
+28. dequeued = queue.pop(0): Usuwamy i zapisujemy pierwszy element ("A").
+29. return queue, dequeued: Zwracamy kolejkę i usunięty element.
+30. def square_numbers(numbers): Definiujemy funkcję do podnoszenia liczb do kwadratu.
+31. return [x * x for x in numbers]: Używamy list comprehension do stworzenia nowej listy.
+32. def array_example(): Definiujemy funkcję do pracy z tablicą (moduł array).
+33. arr = array('i', [1, 2, 3, 4]): Tworzymy tablicę liczb całkowitych.
+34. arr.append(5): Dodajemy 5 do tablicy.
+35. return list(arr): Zwracamy tablicę jako listę.
+36. lst = [1, 2, 3]: Inicjalizujemy listę testową.
+37. print("Oryginalna lista:", lst): Wyświetlamy: [1, 2, 3].
+38. print("Po dodaniu [4, 5]:", add_elements(lst, [4, 5])): Wyświetlamy: [1, 2, 3, 4, 5].
+39. print("Po usunięciu 3:", remove_element(lst, 3)): Wyświetlamy: [1, 2, 4, 5].
+40. print("Po wstawieniu 0 na indeks 0:", insert_at_index(lst, 0, 0)): Wyświetlamy: [0, 1, 2, 4, 5].
+41. print("Posortowana lista:", sort_list(lst)): Wyświetlamy: [0, 1, 2, 4, 5].
+42. print("Odwrócona lista:", reverse_list(lst)): Wyświetlamy: [5, 4, 2, 1, 0].
+43. stack, popped = stack_operations(): Wykonujemy operacje na stosie.
+44. print("Stos po operacjach:", stack, "Usunięty element:", popped): Wyświetlamy: [1, 2], 3.
+45. queue, dequeued = queue_operations(): Wykonujemy operacje na kolejce.
+46. print("Kolejka po operacjach:", queue, "Usunięty element:", dequeued): Wyświetlamy: ["B", "C"], "A".
+47. numbers = [1, 2, 3, 4]: Inicjalizujemy listę liczb.
+48. print("Kwadraty liczb:", square_numbers(numbers)): Wyświetlamy: [1, 4, 9, 16].
+49. print("Tablica (array):", array_example()): Wyświetlamy: [1, 2, 3, 4, 5].
+
+Złożoność:
+- append/extend: O(1) amortyzowane.
+- remove/insert: O(n) – przesunięcie elementów.
+- sorted: O(n log n).
+- pop(0) (dequeue): O(n) – przesunięcie elementów.
+- List comprehension: O(n).

@@ -1,0 +1,69 @@
+Wyjaśnienie kodu z Modułu 2: Stosy i kolejki
+
+1. class Node: Definiujemy klasę Node, jak w Module 1.
+2. def __init__(self, data): Konstruktor węzła.
+3. self.data = data: Przechowujemy dane.
+4. self.next = None: Ustawiamy referencję do następnego węzła na None.
+5. class Stack: Definiujemy klasę Stack do zarządzania stosem.
+6. def __init__(self): Konstruktor stosu.
+7. self.top = None: Inicjalizujemy szczyt stosu jako None.
+8. def push(self, data): Definiujemy metodę do dodawania elementu na stos.
+9. new_node = Node(data): Tworzymy nowy węzeł.
+10. new_node.next = self.top: Nowy węzeł wskazuje na obecny szczyt.
+11. self.top = new_node: Ustawiamy nowy węzeł jako szczyt.
+12. def pop(self): Definiujemy metodę do usuwania elementu ze stosu.
+13. if not self.top: Jeśli stos jest pusty, zwracamy None.
+14. return None: Kończymy.
+15. popped = self.top.data: Zapisujemy dane szczytu.
+16. self.top = self.top.next: Przesuwamy szczyt na następny węzeł.
+17. return popped: Zwracamy usunięty element.
+18. def peek(self): Definiujemy metodę do podglądu szczytu.
+19. if not self.top: Jeśli stos jest pusty, zwracamy None.
+20. return None: Kończymy.
+21. return self.top.data: Zwracamy dane szczytu.
+22. def is_empty(self): Definiujemy metodę sprawdzającą, czy stos jest pusty.
+23. return self.top is None: Zwracamy True, jeśli stos jest pusty.
+24. class Queue: Definiujemy klasę Queue do zarządzania kolejką.
+25. def __init__(self): Konstruktor kolejki.
+26. self.front = None: Inicjalizujemy początek kolejki.
+27. self.rear = None: Inicjalizujemy koniec kolejki.
+28. def enqueue(self, data): Definiujemy metodę do dodawania elementu na koniec kolejki.
+29. new_node = Node(data): Tworzymy nowy węzeł.
+30. if not self.front: Jeśli kolejka jest pusta:
+31. self.front = new_node: Ustawiamy nowy węzeł jako początek.
+32. self.rear = new_node: Ustawiamy nowy węzeł jako koniec.
+33. else: Jeśli kolejka nie jest pusta:
+34. self.rear.next = new_node: Dodajemy nowy węzeł na końcu.
+35. self.rear = new_node: Aktualizujemy koniec kolejki.
+36. def dequeue(self): Definiujemy metodę do usuwania elementu z początku kolejki.
+37. if not self.front: Jeśli kolejka jest pusta, zwracamy None.
+38. return None: Kończymy.
+39. dequeued = self.front.data: Zapisujemy dane początku.
+40. self.front = self.front.next: Przesuwamy początek na następny węzeł.
+41. if not self.front: Jeśli kolejka stała się pusta:
+42. self.rear = None: Ustawiamy koniec na None.
+43. return dequeued: Zwracamy usunięty element.
+44. def front_element(self): Definiujemy metodę do podglądu początku kolejki.
+45. if not self.front: Jeśli kolejka jest pusta, zwracamy None.
+46. return None: Kończymy.
+47. return self.front.data: Zwracamy dane początku.
+48. def is_empty(self): Definiujemy metodę sprawdzającą, czy kolejka jest pusta.
+49. return self.front is None: Zwracamy True, jeśli kolejka jest pusta.
+50. stack = Stack(): Tworzymy obiekt stosu.
+51. stack.push(1): Dodajemy 1 na stos.
+52. stack.push(2): Dodajemy 2 na stos.
+53. stack.push(3): Dodajemy 3 na stos.
+54. print("Stos po push:", stack.peek()): Wyświetlamy: 3.
+55. print("Pop ze stosu:", stack.pop()): Usuwamy i wyświetlamy: 3.
+56. print("Stos po pop:", stack.peek()): Wyświetlamy: 2.
+57. queue = Queue(): Tworzymy obiekt kolejki.
+58. queue.enqueue("A"): Dodajemy "A" do kolejki.
+59. queue.enqueue("B"): Dodajemy "B" do kolejki.
+60. queue.enqueue("C"): Dodajemy "C" do kolejki.
+61. print("Kolejka po enqueue:", queue.front_element()): Wyświetlamy: A.
+62. print("Dequeue z kolejki:", queue.dequeue()): Usuwamy i wyświetlamy: A.
+63. print("Kolejka po dequeue:", queue.front_element()): Wyświetlamy: B.
+
+Złożoność:
+- Stos: push, pop, peek – O(1).
+- Kolejka: enqueue, dequeue, front – O(1).

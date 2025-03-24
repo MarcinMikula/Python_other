@@ -1,0 +1,28 @@
+Moduł 3: Drzewa binarne i drzewa wyszukiwania binarnego (BST)
+
+Moduł 3 kursu "Data Structures" (UCSD) omawia drzewa binarne i drzewa wyszukiwania binarnego (BST) jako struktury danych do przechowywania danych w sposób hierarchiczny. Kluczowe tematy:
+
+1. Drzewa binarne:
+   - Drzewo binarne to struktura, w której każdy węzeł ma co najwyżej dwoje dzieci (lewe i prawe).
+   - Operacje: Przechodzenie (inorder, preorder, postorder), obliczanie wysokości, zliczanie węzłów.
+   - Złożoność: O(h) dla operacji, gdzie h to wysokość drzewa (h = log n dla drzewa zrównoważonego, h = n dla niezrównoważonego).
+
+2. Drzewa wyszukiwania binarnego (BST):
+   - BST to drzewo binarne, w którym dla każdego węzła wartości w lewym poddrzewie są mniejsze, a w prawym większe od wartości węzła.
+   - Operacje: Wstawianie, wyszukiwanie, usuwanie.
+   - Złożoność: O(h) dla operacji, gdzie h to wysokość drzewa.
+
+3. Matematyczne aspekty:
+   - Wysokość drzewa: Najdłuższa ścieżka od korzenia do liścia.
+   - Złożoność operacji w BST: Najlepszy przypadek (drzewo zrównoważone) – O(log n), najgorszy (drzewo niezrównoważone) – O(n).
+   - Liczba węzłów na poziomie k: Do 2^k węzłów.
+
+4. Przykłady praktyczne:
+   - Implementacja BST w Pythonie.
+   - Operacje na BST: wstawianie, wyszukiwanie, usuwanie.
+   - Przechodzenie drzewa w porządku inorder (daje posortowaną sekwencję).
+
+5. Kluczowe wnioski:
+   - Drzewa binarne są wszechstronną strukturą do przechowywania danych hierarchicznych.
+   - BST umożliwia efektywne wyszukiwanie i sortowanie, ale wymaga zrównoważenia, aby uniknąć degeneracji w listę.
+   - Zrozumienie operacji na drzewach jest kluczowe dla bardziej zaawansowanych struktur, takich jak drzewa AVL.

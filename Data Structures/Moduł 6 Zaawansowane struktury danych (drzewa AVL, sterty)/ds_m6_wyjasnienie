@@ -1,0 +1,58 @@
+Wyjaśnienie kodu z Modułu 6: Zaawansowane struktury danych (drzewa AVL, sterty)
+
+1. class MinHeap: Definiujemy klasę MinHeap do zarządzania stertą minimalną.
+2. def __init__(self): Konstruktor sterty.
+3. self.heap = []: Inicjalizujemy pustą listę jako stertę.
+4. def parent(self, i): Definiujemy metodę do znajdowania indeksu rodzica.
+5. return (i - 1) // 2: Zwracamy indeks rodzica.
+6. def left_child(self, i): Definiujemy metodę do znajdowania indeksu lewego dziecka.
+7. return 2 * i + 1: Zwracamy indeks lewego dziecka.
+8. def right_child(self, i): Definiujemy metodę do znajdowania indeksu prawego dziecka.
+9. return 2 * i + 2: Zwracamy indeks prawego dziecka.
+10. def swap(self, i, j): Definiujemy metodę do zamiany elementów.
+11. self.heap[i], self.heap[j] = self.heap[j], self.heap[i]: Zamieniamy elementy.
+12. def insert(self, value): Definiujemy metodę do wstawiania wartości.
+13. self.heap.append(value): Dodajemy wartość na koniec listy.
+14. self._sift_up(len(self.heap) - 1): Przywracamy własność sterty, przesuwając element w górę.
+15. def _sift_up(self, i): Definiujemy metodę do przesuwania elementu w górę.
+16. parent = self.parent(i): Obliczamy indeks rodzica.
+17. while i > 0 and self.heap[parent] > self.heap[i]: Dopóki element jest mniejszy od rodzica:
+18. self.swap(i, parent): Zamieniamy element z rodzicem.
+19. i = parent: Przesuwamy się w górę.
+20. parent = self.parent(i): Obliczamy nowego rodzica.
+21. def extract_min(self): Definiujemy metodę do usuwania minimum.
+22. if not self.heap: Jeśli sterta jest pusta:
+23. return None: Zwracamy None.
+24. if len(self.heap) == 1: Jeśli jest tylko jeden element:
+25. return self.heap.pop(): Usuwamy i zwracamy element.
+26. min_val = self.heap[0]: Zapisujemy minimum (korzeń).
+27. self.heap[0] = self.heap.pop(): Przenosimy ostatni element na początek.
+28. self._sift_down(0): Przywracamy własność sterty, przesuwając element w dół.
+29. return min_val: Zwracamy minimum.
+30. def _sift_down(self, i): Definiujemy metodę do przesuwania elementu w dół.
+31. min_index = i: Ustawiamy indeks minimum na bieżący.
+32. size = len(self.heap): Pobieramy rozmiar sterty.
+33. while True: Pętla do przywracania własności sterty:
+34. left = self.left_child(i): Obliczamy indeks lewego dziecka.
+35. right = self.right_child(i): Obliczamy indeks prawego dziecka.
+36. if left < size and self.heap[left] < self.heap[min_index]: Jeśli lewe dziecko jest mniejsze:
+37. min_index = left: Aktualizujemy indeks minimum.
+38. if right < size and self.heap[right] < self.heap[min_index]: Jeśli prawe dziecko jest mniejsze:
+39. min_index = right: Aktualizujemy indeks minimum.
+40. if i != min_index: Jeśli znaleziono mniejszy element:
+41. self.swap(i, min_index): Zamieniamy elementy.
+42. i = min_index: Przesuwamy się w dół.
+43. else: Jeśli nie ma mniejszych dzieci:
+44. break: Kończymy.
+45. heap = MinHeap(): Tworzymy obiekt sterty.
+46. values = [5, 3, 7, 1, 4, 2]: Lista wartości do wstawienia.
+47. for value in values: Iterujemy po wartościach.
+48. heap.insert(value): Wstawiamy każdą wartość.
+49. print("Sterta po wstawieniu:", heap.heap): Wyświetlamy: [1, 3, 2, 5, 4, 7].
+50. print("Minimum:", heap.extract_min()): Usuwamy i wyświetlamy: 1.
+51. print("Sterta po usunięciu minimum:", heap.heap): Wyświetlamy: [2, 3, 7, 5, 4].
+
+Złożoność:
+- Wstawianie: O(log n) – przesuwanie w górę.
+- Usuwanie minimum: O(log n) – przesuwanie w dół.
+- Budowanie sterty: O(n) dla n elementów.

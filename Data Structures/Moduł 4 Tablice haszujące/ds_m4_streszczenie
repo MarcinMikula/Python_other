@@ -1,0 +1,28 @@
+Moduł 4: Tablice haszujące
+
+Moduł 4 kursu "Data Structures" (UCSD) omawia tablice haszujące jako strukturę danych do efektywnego przechowywania i wyszukiwania danych. Kluczowe tematy:
+
+1. Tablice haszujące (Hash Tables):
+   - Tablica haszująca to struktura danych, która mapuje klucze na wartości za pomocą funkcji haszującej.
+   - Operacje: Wstawianie, wyszukiwanie, usuwanie.
+   - Złożoność: Średnio O(1) dla operacji, w najgorszym przypadku O(n) przy wielu kolizjach.
+
+2. Funkcje haszujące i kolizje:
+   - Funkcja haszująca: Przekształca klucz na indeks w tablicy (np. hash(key) % size).
+   - Kolizje: Gdy dwa klucze mapują się na ten sam indeks.
+   - Rozwiązanie kolizji: Łańcuchowanie (listy w każdym kubełku) lub sondowanie liniowe (linear probing).
+
+3. Matematyczne aspekty:
+   - Współczynnik obciążenia (load factor): α = liczba elementów / rozmiar tablicy. Przy α > 0.7 warto zwiększyć rozmiar tablicy.
+   - Złożoność: Średnia O(1), najgorsza O(n) przy złej funkcji haszującej lub wielu kolizjach.
+   - Funkcja haszująca: Powinna być szybka i równomiernie rozkładać klucze.
+
+4. Przykłady praktyczne:
+   - Implementacja tablicy haszującej z łańcuchowaniem w Pythonie.
+   - Operacje: wstawianie, wyszukiwanie, usuwanie.
+   - Testowanie na zestawie danych z kolizjami.
+
+5. Kluczowe wnioski:
+   - Tablice haszujące są bardzo efektywne do wyszukiwania i przechowywania danych, jeśli funkcja haszująca jest dobrze zaprojektowana.
+   - Rozwiązanie kolizji jest kluczowe dla wydajności tablicy haszującej.
+   - Tablice haszujące mają szerokie zastosowanie, np. w bazach danych, cache’ach, słownikach.

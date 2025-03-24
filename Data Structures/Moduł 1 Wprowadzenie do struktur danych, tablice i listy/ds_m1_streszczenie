@@ -1,0 +1,29 @@
+Moduł 1: Tablice i listy (na bazie dokumentacji Pythona)
+
+Moduł 1 wprowadza podstawy tablic i list w Pythonie, opierając się na oficjalnej dokumentacji Pythona (https://docs.python.org/3/tutorial/datastructures.html#more-on-lists). Skupiamy się na praktycznych operacjach i ich zastosowaniach. Kluczowe tematy:
+
+1. Listy w Pythonie:
+   - Lista (`list`) w Pythonie to dynamiczna tablica, która może przechowywać elementy różnych typów.
+   - Operacje: Dodawanie (`append`, `extend`), usuwanie (`pop`, `remove`), wstawianie (`insert`), sortowanie (`sort`), odwracanie (`reverse`).
+   - Złożoność: append/pop na końcu – O(1), insert/pop w środku – O(n), sort – O(n log n).
+
+2. Tablice w Pythonie:
+   - Moduł `array` pozwala tworzyć tablice o stałym typie (np. tylko liczby całkowite).
+   - Różnice w porównaniu do list: Tablice są bardziej pamięciooszczędne, ale mniej elastyczne (stały typ, brak dynamicznego rozmiaru).
+   - Zastosowania: Gdy potrzebujemy tablicy o stałym typie i rozmiarze (np. w niskopoziomowych operacjach).
+
+3. Matematyczne aspekty:
+   - Złożoność czasowa operacji na listach: append – O(1), insert – O(n), dostęp – O(1).
+   - Rozmiar listy: Dynamicznie rośnie (Python automatycznie podwaja rozmiar tablicy, gdy jest pełna, co daje amortyzowany koszt O(1) dla append).
+   - Porównanie: Listy są bardziej elastyczne niż tablice, ale mogą być mniej efektywne pamięciowo.
+
+4. Przykłady praktyczne:
+   - Operacje na listach: Dodawanie, usuwanie, sortowanie, odwracanie.
+   - Użycie list jako stosu (LIFO) i kolejki (FIFO).
+   - Użycie list comprehensions w stylu funkcyjnym do transformacji danych.
+
+5. Kluczowe wnioski:
+   - Listy w Pythonie to wszechstronna struktura danych, idealna do większości zastosowań.
+   - Tablice (moduł `array`) są użyteczne w specyficznych przypadkach, gdy liczy się oszczędność pamięci.
+   - Styl funkcyjny (np. list comprehensions) pozwala na zwięzły i czytelny kod do operacji na listach.
+   - Styl funkcyjny (np. list comprehensions) pozwala na zwięzły i czytelny kod do operacji na listach.
