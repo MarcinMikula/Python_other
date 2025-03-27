@@ -1,0 +1,69 @@
+Wyjaśnienie kodu: Przykłady użycia biblioteki requests z sztucznym API
+
+1. import requests: Importujemy bibliotekę requests do wykonywania żądań HTTP.
+2. from requests.exceptions import ...: Importujemy wyjątki do obsługi błędów.
+3. BASE_URL = "https://fake-api.example.com": Definiujemy podstawowy URL sztucznego API.
+4. USERS_URL = f"{BASE_URL}/users": URL do endpointu użytkowników.
+5. USER_URL = lambda user_id: ...: Funkcja generująca URL dla konkretnego użytkownika.
+6. UPLOAD_URL = f"{BASE_URL}/upload": URL do endpointu przesyłania plików.
+7. AUTH_URL = f"{BASE_URL}/auth": URL do endpointu z autoryzacją Basic Auth.
+8. COOKIES_URL = f"{BASE_URL}/cookies": URL do endpointu z obsługą ciasteczek.
+9. def get_users(): Definiujemy funkcję do pobierania listy użytkowników (GET).
+10. response = requests.get(USERS_URL, params={"limit": 10}, timeout=5): Wykonujemy żądanie GET z parametrem limit=10 i timeoutem 5 sekund.
+11. params={"limit": 10}: Dodajemy parametr zapytania ?limit=10.
+12. timeout=5: Ustawiamy limit czasu na 5 sekund.
+13. response.raise_for_status(): Rzucamy wyjątek, jeśli status nie jest 200.
+14. users = response.json(): Parsujemy odpowiedź JSON.
+15. for user in users.get("users", []): Iterujemy po liście użytkowników.
+16. except HTTPError as e: Łapiemy błędy HTTP (np. 404, 500).
+17. except Timeout: Łapiemy błąd przekroczenia czasu.
+18. except RequestException as e: Łapiemy ogólne błędy żądania.
+19. def create_user(name, email): Definiujemy funkcję do tworzenia użytkownika (POST).
+20. headers = {"Content-Type": "application/json"}: Ustawiamy nagłówek Content-Type na JSON.
+21. user_data = {"name": name, "email": email}: Przygotowujemy dane użytkownika.
+22. response = requests.post(USERS_URL, json=user_data, headers=headers): Wysyłamy żądanie POST z danymi JSON.
+23. json=user_data: Automatycznie serializujemy dane do JSON i wysyłamy w ciele żądania.
+24. new_user = response.json(): Parsujemy odpowiedź.
+25. def update_user(user_id, new_name): Definiujemy funkcję do aktualizacji użytkownika (PUT).
+26. response = requests.put(...): Wykonujemy żądanie PUT, wysyłając nowe dane.
+27. def delete_user(user_id): Definiujemy funkcję do usuwania użytkownika (DELETE).
+28. response = requests.delete(...): Wykonujemy żądanie DELETE.
+29. def session_example(): Definiujemy funkcję pokazującą użycie sesji.
+30. session = requests.Session(): Tworzymy sesję.
+31. session.headers.update(...): Ustawiamy nagłówki dla wszystkich żądań w sesji.
+32. response1 = session.get(...): Wykonujemy pierwsze żądanie w sesji.
+33. response2 = session.get(...): Wykonujemy drugie żądanie w sesji, korzystając z tych samych nagłówków.
+34. def get_headers(): Definiujemy funkcję do pobierania nagłówków (HEAD).
+35. response = requests.head(...): Wykonujemy żądanie HEAD.
+36. for key, value in response.headers.items(): Wyświetlamy nagłówki.
+37. def get_allowed_methods(): Definiujemy funkcję do sprawdzania dozwolonych metod (OPTIONS).
+38. response = requests.options(...): Wykonujemy żądanie OPTIONS.
+39. allowed_methods = response.headers.get("Allow", ...): Pobieramy dozwolone metody z nagłówka Allow.
+40. def upload_file(file_path): Definiujemy funkcję do przesyłania pliku (POST).
+41. with open(file_path, "rb") as f: Otwieramy plik w trybie binarnym.
+42. files = {"file": (file_path, f, "text/plain")}: Przygotowujemy plik do przesłania w formacie multipart/form-data.
+43. response = requests.post(UPLOAD_URL, files=files): Wysyłamy żądanie POST z plikiem.
+44. except FileNotFoundError: Łapiemy błąd, jeśli plik nie istnieje.
+45. def basic_auth_example(): Definiujemy funkcję pokazującą autoryzację Basic Auth (GET).
+46. response = requests.get(AUTH_URL, auth=("fake-user", "fake-password")): Wykonujemy żądanie GET z autoryzacją Basic Auth.
+47. auth=("fake-user", "fake-password"): Przekazujemy nazwę użytkownika i hasło do autoryzacji.
+48. def cookies_example(): Definiujemy funkcję pokazującą obsługę ciasteczek.
+49. session = requests.Session(): Tworzymy sesję, aby automatycznie zarządzać ciasteczkami.
+50. response1 = session.get(COOKIES_URL): Wykonujemy pierwsze żądanie, które ustawia ciasteczko.
+51. print("Ciasteczka po pierwszym żądaniu:", session.cookies.get_dict()): Wyświetlamy ciasteczka.
+52. response2 = session.post(COOKIES_URL, data={"action": "check"}): Wykonujemy drugie żądanie, wysyłając ciasteczko z powrotem.
+53. def main(): Główna funkcja programu.
+54. get_users(): Wywołujemy funkcję GET.
+55. create_user(...): Wywołujemy funkcję POST.
+56. update_user(...): Wywołujemy funkcję PUT.
+57. delete_user(...): Wywołujemy funkcję DELETE.
+58. session_example(): Wywołujemy przykład z sesją.
+59. get_headers(): Wywołujemy przykład z HEAD.
+60. get_allowed_methods(): Wywołujemy przykład z OPTIONS.
+61. upload_file("example.txt"): Wywołujemy przykład z przesyłaniem pliku.
+62. basic_auth_example(): Wywołujemy przykład z Basic Auth.
+63. cookies_example(): Wywołujemy przykład z ciasteczkami.
+64. if __name__ == "__main__": Uruchamiamy program.
+
+Uruchomienie:
+- python requests_example.py

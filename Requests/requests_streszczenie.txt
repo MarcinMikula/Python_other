@@ -1,0 +1,51 @@
+Streszczenie biblioteki requests
+
+Biblioteka `requests` to jedno z najpopularniejszych narzędzi w Pythonie do wykonywania żądań HTTP (GET, POST, PUT, DELETE itd.). Umożliwia łatwe i intuicyjne komunikowanie się z API, pobieranie danych z internetu, wysyłanie danych na serwery, testowanie API, a nawet prosty web scraping. Jest szeroko stosowana w automatyzacji, integracji z zewnętrznymi systemami (np. Allegro, Salesforce) i testowaniu.
+
+Kluczowe cechy:
+- Prostota: Wysłanie żądania GET to tylko `requests.get(url)`.
+- Obsługa metod HTTP: GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS.
+- Parametryzacja żądań: Możliwość dodawania nagłówków (`headers`), parametrów zapytania (`params`), danych JSON (`json`), danych formularza (`data`), plików (`files`).
+- Odpowiedzi: Łatwy dostęp do statusu (`response.status_code`), treści (`response.text`), danych JSON (`response.json()`), nagłówków (`response.headers`).
+- Autentykacja: Obsługuje różne metody, np. OAuth, Basic Auth (`auth`), tokeny w nagłówkach.
+- Sesje: `requests.Session()` pozwala przechowywać ustawienia (np. nagłówki, ciasteczka) dla wielu żądań.
+- Obsługa błędów: Automatyczne rzucanie wyjątków (np. `requests.exceptions.HTTPError`) i możliwość ich łapania (`RequestException`, `Timeout`, `ConnectionError`).
+
+Najważniejsze metody:
+- `requests.get(url, params=None, **kwargs)`: Pobiera dane (np. lista użytkowników).
+- `requests.post(url, data=None, json=None, **kwargs)`: Tworzy nowy zasób (np. nowy użytkownik).
+- `requests.put(url, data=None, json=None, **kwargs)`: Aktualizuje zasób.
+- `requests.delete(url, **kwargs)`: Usuwa zasób.
+- `requests.patch(url, data=None, json=None, **kwargs)`: Częściowo aktualizuje zasób.
+- `requests.head(url, **kwargs)`: Pobiera nagłówki odpowiedzi.
+- `requests.options(url, **kwargs)`: Sprawdza dozwolone metody HTTP.
+
+Ważne funkcje i atrybuty:
+- `response.status_code`: Kod statusu HTTP (np. 200 OK, 404 Not Found).
+- `response.raise_for_status()`: Rzuca wyjątek dla błędów HTTP (np. 4xx, 5xx).
+- `response.json()`: Parsuje odpowiedź JSON.
+- `response.text`: Zwraca treść odpowiedzi jako string.
+- `response.headers`: Zwraca nagłówki odpowiedzi.
+- `response.ok`: Zwraca True, jeśli status < 400.
+- `requests.Session()`: Umożliwia przechowywanie ustawień dla wielu żądań.
+- Parametry żądania: `params`, `headers`, `data`, `json`, `files`, `auth`, `timeout`, `verify`.
+
+Obsługa błędów:
+- `requests.exceptions.RequestException`: Ogólny wyjątek dla błędów żądania.
+- `requests.exceptions.HTTPError`: Błędy HTTP (np. 404, 500).
+- `requests.exceptions.ConnectionError`: Błąd połączenia.
+- `requests.exceptions.Timeout`: Przekroczony czas oczekiwania.
+- `requests.exceptions.TooManyRedirects`: Zbyt wiele przekierowań.
+
+Zastosowania:
+- Integracja z API (np. Allegro, Salesforce).
+- Automatyzacja procesów (np. zarządzanie ofertami, zamówieniami).
+- Testowanie API (np. w połączeniu z pytest).
+- Web scraping (pobieranie danych ze stron internetowych).
+
+Przykład:
+```python
+import requests
+response = requests.get("https://api.example.com/users")
+print(response.status_code)  # 200
+print(response.json())  # Dane w formacie JSON

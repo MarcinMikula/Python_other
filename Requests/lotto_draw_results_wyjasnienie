@@ -1,0 +1,32 @@
+Wyjaśnienie kodu: Pobieranie wyników losowań z Lotto API dla określonej daty
+
+1. import requests: Importujemy bibliotekę requests do wykonywania żądań HTTP.
+2. from requests.exceptions import ...: Importujemy wyjątki do obsługi błędów.
+3. from datetime import datetime: Importujemy moduł datetime do obsługi dat.
+4. API_KEY = "twoj_klucz_api": Definiujemy klucz API (zastąp swoim).
+5. DRAW_RESULTS_URL = "...": URL do endpointu Lotto API.
+6. def get_draw_results(draw_date): Definiujemy funkcję do pobierania wyników losowań.
+7. headers = {"X-API-Key": API_KEY}: Ustawiamy nagłówek z kluczem API.
+8. try: ... except ValueError: Sprawdzamy i konwertujemy datę na format ISO 8601.
+9. parsed_date = datetime.fromisoformat(...): Parsujemy datę, usuwając Z i dodając strefę czasową.
+10. formatted_date = parsed_date.strftime(...): Formatujemy datę do ISO 8601.
+11. params = {"drawDate": formatted_date}: Przygotowujemy parametr zapytania drawDate.
+12. response = requests.get(DRAW_RESULTS_URL, headers=headers, params=params): Wykonujemy żądanie GET.
+13. headers=headers: Przekazujemy klucz API w nagłówku.
+14. params=params: Przekazujemy parametr drawDate w URL (np. ?drawDate=2019-08-24T14:15:22Z).
+15. response.raise_for_status(): Rzucamy wyjątek, jeśli status nie jest 200.
+16. results = response.json(): Parsujemy odpowiedź JSON.
+17. if not results: Sprawdzamy, czy odpowiedź nie jest pusta.
+18. for result in results: Iterujemy po liście wyników.
+19. print(...): Wyświetlamy wybrane pola z odpowiedzi.
+20. except HTTPError as e: Łapiemy błędy HTTP.
+21. if response.status_code == 401: Obsługujemy błąd 401 (nieautoryzowany).
+22. elif response.status_code == 404: Obsługujemy błąd 404 (nie znaleziono wyników).
+23. except RequestException as e: Łapiemy ogólne błędy żądania.
+24. def main(): Główna funkcja programu.
+25. draw_date = "2019-08-24T14:15:22Z": Definiujemy przykładową datę.
+26. get_draw_results(draw_date): Wywołujemy funkcję.
+27. if __name__ == "__main__": Uruchamiamy program.
+
+Uruchomienie:
+- python lotto_draw_results.py
