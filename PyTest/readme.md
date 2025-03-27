@@ -1,6 +1,6 @@
 # Szkolenie Pytest: Przewodnik po frameworku
 
-Szkolenie oparte na dokumentacji pytest (https://docs.pytest.org/en/stable/how-to/index.html#how-to). Przewodnik po praktycznych aspektach używania pytest do testowania w Pythonie, rozszerzony o przykłady metod i funkcji.
+Szkolenie oparte na dokumentacji pytest (https://docs.pytest.org/). Przewodnik po praktycznych aspektach używania pytest do testowania w Pythonie, rozszerzony o przykłady metod i funkcji.
 
 ## Struktura repozytorium
 
