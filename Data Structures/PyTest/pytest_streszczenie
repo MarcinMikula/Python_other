@@ -1,0 +1,40 @@
+Pytest: Przewodnik po frameworku (na podstawie sekcji "How to")
+
+Pytest to popularny framework do testowania w Pythonie, który umożliwia pisanie prostych i skalowalnych testów. Sekcja "How to" w dokumentacji (https://docs.pytest.org/en/stable/how-to/index.html#how-to) opisuje praktyczne aspekty jego użycia. Kluczowe tematy:
+
+1. Instalacja i konfiguracja:
+   - Pytest instaluje się za pomocą pip: `pip install pytest`.
+   - Testy można uruchamiać poleceniem `pytest` w katalogu z testami.
+
+2. Pisanie i uruchamianie testów:
+   - Testy piszemy w plikach o nazwie `test_*.py` lub `*test.py`.
+   - Funkcje testowe powinny zaczynać się od `test_`.
+   - Pytest automatycznie znajduje i uruchamia testy.
+
+3. Używanie asercji:
+   - Pytest używa standardowego `assert` do sprawdzania warunków.
+   - W przypadku niepowodzenia testu, pytest wyświetla szczegółowy raport.
+
+4. Organizacja testów:
+   - Testy można grupować w klasy (np. `class TestClass`).
+   - Używa się `setup` i `teardown` do przygotowania i sprzątania środowiska testowego.
+
+5. Fixtures:
+   - Fixtures to mechanizm do przygotowywania danych lub środowiska przed testami.
+   - Definiuje się je za pomocą dekoratora `@pytest.fixture`.
+
+6. Parametryzacja testów:
+   - Używa się dekoratora `@pytest.mark.parametrize` do uruchamiania tego samego testu z różnymi danymi.
+
+7. Markery i selekcja testów:
+   - Markery (np. `@pytest.mark.slow`) pozwalają oznaczać testy i uruchamiać wybrane grupy.
+   - Można uruchamiać testy z określonym markerem, np. `pytest -m slow`.
+
+8. Raportowanie i debugowanie:
+   - Pytest generuje szczegółowe raporty o wynikach testów.
+   - Opcje jak `-v` (verbose) lub `--pdb` (debugowanie) ułatwiają analizę.
+
+9. Kluczowe wnioski:
+   - Pytest jest prosty w użyciu, ale bardzo potężny dzięki funkcjom jak fixtures, parametryzacja i markery.
+   - Automatyczne wykrywanie testów i szczegółowe raporty przyspieszają proces testowania.
+   - Framework jest idealny zarówno dla małych, jak i dużych projektów.

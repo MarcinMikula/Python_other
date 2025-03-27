@@ -1,0 +1,13 @@
+Zadania do ćwiczenia asercji w pytest
+
+1. Napisz test dla funkcji calculate_discount, który sprawdza, czy rabat 100% na cenę 50 daje 0. Użyj podstawowej asercji.
+
+2. Napisz test, który sprawdza, czy funkcja calculate_discount rzuca wyjątek ValueError, gdy procent rabatu jest większy niż 100. Użyj pytest.raises.
+
+3. Napisz test parametryzowany, który sprawdza calculate_discount dla różnych cen (np. 50, 150, 250) z rabatem 20%. Użyj asercji do porównania wyników.
+
+4. Napisz test, który tworzy listę wyników calculate_discount dla cen [100, 200] z rabatem 30% i sprawdza, czy wyniki są poprawne. Użyj asercji dla listy.
+
+5. Napisz test, który sprawdza, czy stringowa reprezentacja wyniku calculate_discount(100, 10) to "90". Użyj asercji dla ciągu znaków.
+
+6. Napisz test, który celowo nie przejdzie (np. błędne oczekiwanie wyniku) i przeanalizuj raport pytest.

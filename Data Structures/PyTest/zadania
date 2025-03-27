@@ -1,0 +1,12 @@
+
+Zadania do Pytest: Przewodnik po frameworku
+
+1. Napisz testy dla funkcji obliczającej średnią z listy liczb (np. [1, 2, 3, 4]). Użyj parametryzacji, aby przetestować różne przypadki, w tym listę pustą.
+
+2. Zaimplementuj fixture, który przygotowuje tymczasowy plik tekstowy z danymi testowymi, a po teście go usuwa. Napisz test, który odczytuje dane z tego pliku i sprawdza ich poprawność.
+
+3. Utwórz klasę testową z metodami setup i teardown, która testuje funkcję sprawdzającą, czy liczba jest parzysta. Przetestuj co najmniej 3 przypadki.
+
+4. Oznacz testy markerami (np. "unit" i "integration") i napisz skrypt, który uruchamia tylko testy z markerem "unit". Przetestuj na przykładzie funkcji dodawania.
+
+5. Napisz test, który celowo nie przejdzie, i przeanalizuj raport wygenerowany przez pytest. Opisz, jak użyć opcji --pdb do debugowania tego testu.
